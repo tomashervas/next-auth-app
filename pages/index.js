@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Roboto } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { getSession, useSession } from "next-auth/react";
+import { getSession, useSession, signOut } from "next-auth/react";
 //import { useEffect, useState } from "react";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
@@ -37,6 +37,7 @@ export default function Home() {
             width="200"
             priority
           />
+          <button onClick={() => signOut({callbackUrl: '/login' })}>Cerrar sesión</button>
         </main>
       </>
     );
